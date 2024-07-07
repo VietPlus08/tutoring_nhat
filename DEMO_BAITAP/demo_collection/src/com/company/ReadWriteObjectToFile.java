@@ -23,7 +23,7 @@ public class ReadWriteObjectToFile {
 
     public static void writeObjectToFile(String path, List<User> users){
         try{
-            FileWriter fileWriter = new FileWriter(path);
+            FileWriter fileWriter = new FileWriter(path, true);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter); // cải thiện hiệu suất đọc ghi file
             for (User user: users) {
             String writedData = user.id + "," + user.name + "," + user.age; // có thể dùng simpleObject() để ghi file
@@ -53,7 +53,6 @@ public class ReadWriteObjectToFile {
                 User user = new User(id, name, age);
                 users.add(user);
             }
-
             bufferedReader.close();
             fileReader.close();
         } catch (IOException e) {

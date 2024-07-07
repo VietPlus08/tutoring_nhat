@@ -11,6 +11,13 @@ public class User{
         this.age = age;
     }
 
+    public User(String userFromFile){
+        String[] splitLine = userFromFile.split(",");
+        this.id = Integer.parseInt(splitLine[0]);
+        this.name = splitLine[1];
+        this.age = Integer.parseInt(splitLine[2]);
+    }
+
     public int getId() {
         return id;
     }
