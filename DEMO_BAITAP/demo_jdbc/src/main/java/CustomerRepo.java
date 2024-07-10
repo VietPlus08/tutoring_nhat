@@ -6,13 +6,12 @@ import java.util.List;
 public class CustomerRepo {
 
     public List<Customer> getCustomers(){
-        List<Customer> customers = new ArrayList<Customer>();
+        List<Customer> customers = new ArrayList<>();
         try{
             Connection connection = DbConnection.createConnection();
             Statement statement = connection.createStatement();
             String sql = "select * from Customer";
             ResultSet rs = statement.executeQuery(sql);
-
 
             while (rs.next()){
                 Customer customer = new Customer();
@@ -24,6 +23,7 @@ public class CustomerRepo {
                 customers.add(customer);
             }
 
+            rs.close();
             statement.close();
             connection.close();
         }
